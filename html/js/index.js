@@ -16,7 +16,7 @@ async function buscarendereco(zipCode) {
         throw new Error('Restrição: ' + error.message);
     }
 }
-//teste
+
 //Rescebe os dados do endereço e preenche os campos de endereço
 async function BuscarEndereco() {
     const zipCode = cep.value.replace('-', '');

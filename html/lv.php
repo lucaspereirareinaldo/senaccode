@@ -14,6 +14,6 @@ $fieldsAndValues = [
     'cpf'          => $cpf,
     'rg'          => $rg,
     'data_nascimento' => $data_nascimento
-];
+]; 
 
 InsertQuery::table('aluno')->save($fieldsAndValues);

@@ -1,25 +1,86 @@
+<?php
+$id='';
+$acao='';
+if( isset($_GET['id']) and !empty($_GET['id'])) {
+    $id=$_GET['id'];
+    $acao = 'e';
+} else {
+    $id= '';
+    $acao = 'c';
+}
+?>
+
 <!DOCTYPE html>
-<html lang="PT-br">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/stylesheet.css">
-
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/all.min.css">
 </head>
+
 <body>
-<h1>Disciplina</h1>
-<form id="disciplina">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Início</a></li>
+                        <li class="breadcrumb-item"><a href="/listadisciplina.php">Lista de Disciplina</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Cadastro e edição de Disciplina</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Cadastro e edição de Disciplinas
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="col-12">
+                            <div class="alert alert-warning" role="alert">
+                                Todos os campos sinalizados com
+                                <span class="text-danger">*</span>
+                            </div>
+                            <form id="form">
+                                <input type="hidden" name="id" id="id" value="<?php echo $id ?>">    
+                                <input type="hidden" name="acao" id="acao" value="<?php echo $acao?>">    
+                                <div class="form-floating mb-3">
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        id="nome"
+                                        name="nome"
+                                        placeholder="">
+                                        <label for="floatigInput">Digite por favor sua Disciplina * </label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="btn-group" role="group" aria-label="basic example">
+                        <a href="/disciplina.php" class="btn btn-outline-warning">
+                                <i class="fas fa-chevron-left"></i>
+                                Voltar
+                            </a>
+                            <button type="button" class="btn btn-outline-success">
+                                <i class="fas fa-save"></i>
+                            Salvar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<label for="nome">Nome</label>
-<input type="text" name="nome" id="nome" placeholder="Digite o nome da disciplina">
-<br>
-<label for="ativo">Ativo</label>
-<input type="checkbox" name="ativo" id="ativo">
-<br>
-<button type="button" id="btnsalvar2">Enviar</button>
 
-</form>
-    <script src ="js/disciplina.js" ></script>
+        <script src="/js/bootstrap.js"></script>
+        <script src="/js/all.min.js"></script>
 </body>
+
 </html>

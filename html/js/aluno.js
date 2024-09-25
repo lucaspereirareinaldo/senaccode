@@ -1,18 +1,14 @@
-const salvar_botao = document.getElementById('btnsalvar');
-
-async function insert() {
-
-    const form = document.getElementById('aluno');
-    const formData = new FormData(form);
-    const opt = {
-        method: 'POST',
-        body: formData
-    }
-    const response = fetch('cadastro_aluno.php', opt);
-}
-
-
-salvar_botao.addEventListener('click', async () => {
-
-    await insert();
+const table = new DataTable('#tabela', {
+    paging: true,
+    lengthChange: true,
+    searching: true,
+    ordering: true,
+    info: true,
+    autoWidth: false,
+    responsive: true,
+    stateSave: true,
+    select: true,
+    language: {
+        url: '/js/pt-BR.json'
+    },
 });

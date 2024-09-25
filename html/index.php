@@ -1,30 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Inicial</title>
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/all.min.css">
-</head>
+use Slim\Factory\AppFactory;
 
-<body>
+require __DIR__ . '/../vendor/autoload.php';
 
-    <div class="conteiner">
-        <div class="row">
-            <div class="col-12">
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">pg</a></li>
-    </ol>
-</nav>
-            </div>
-        </div>
-    </div>
+$app = AppFactory::create();
 
-    <script src="/js/bootstrap.js"></script>
-    <script src="/js/all.min.js"></script>
-</body>
+require __DIR__ . '/../app/helpers/settings.php';
 
-</html>
+require __DIR__ . '/../app/routes/routes.php';
+
+$app->run();
+
+
+$senha_segura = 'senha_segura';
+
+$passwd = password_hash($senha_segura, PASSWORD_DEFAULT);
+
+$senha_correta = password_verify($senha_segura, $passwd);
+
+$senha_vencida = password_needs_rehash($passwd, PASSWORD_DEFAULT);
+
